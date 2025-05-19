@@ -17,7 +17,7 @@ for filename in sorted(os.listdir(EXAMPLES_DIR)):
     with open(os.path.join(EXAMPLES_DIR, filename)) as f:
         policy = json.load(f)
 
-    prompt = load_prompt(PROMPT_PATH, policy)
+    prompt = load_prompt(prompt_template, policy)
     success, result_json, raw = run_policy(prompt)
 
     result_entry = {

@@ -13,7 +13,6 @@ def write_session_log(prompt, results):
     }
     with open(session_path, "w") as f:
         json.dump(session_data, f, indent=2)
-    print(f"✅ Session saved to: {session_path}")
     
 def write_submission_results(results):
     os.makedirs("final_results", exist_ok=True)
@@ -38,4 +37,3 @@ def write_submission_results(results):
     with open(final_path, "w") as f:
         json.dump(formatted_results, f, indent=2)
 
-    print(f"📦 Final submission file saved to: {final_path}")
