@@ -1,0 +1,27 @@
+{
+  "Version": "2022-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowListAndReadOnly",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeInstances",
+        "s3:ListBucket",
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:ec2:us-west-2:123456789012:instance/*",
+        "arn:aws:s3:::my-data-bucket",
+        "arn:aws:s3:::my-data-bucket/*"
+      ],
+      "Condition": {
+        "Bool": {
+          "aws:MultiFactorAuthPresent": "true"
+        },
+        "StringEquals": {
+          "aws:RequestedRegion": "us-west-2"
+        }
+      }
+    }
+  ]
+}

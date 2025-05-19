@@ -1,0 +1,11 @@
+You are a security assistant. Classify the following AWS IAM policy as either "Weak" or "Strong".
+
+Definitions:
+- "Weak" = overly broad permissions (e.g., Action: "*", s3:*, Resource: "*"), even with basic conditions like SecureTransport or IP filtering.
+- "Strong" = limited actions and resources, with meaningful conditions (e.g., MFA, tags, region).
+
+Respond ONLY in JSON with keys: "classification" and "reason".
+Do not repeat the policy or include extra text.
+
+Policy:
+{{POLICY}}
